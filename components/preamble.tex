@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage{tikz, incgraph, ocgx}
+\igrset{border=4cm}
+\usetikzlibrary{arrows.meta, positioning, ocgx}
+\tikzset{
+    default/.append style={
+            draw,
+            rectangle,
+            rounded corners,
+            minimum width=2cm,
+            minimum height=1cm
+        },
+    arrow/.append style={
+            -latex,
+            shorten >=5pt,
+            shorten <=5pt
+        }
+}
+\newcommand{\beginOcg}[3]{
+    \begin{ocg}{#1}{#1}{#3}
+        \hspace{2.5pt}#2
+    \end{ocg}
+}
+\newcommand{\question}[3]{
+    \node[#1, default, switch ocg={#2 #2e}](#2){
+        \beginOcg{#2}{#3}{0}
+    }
+    node at(#2){
+        \beginOcg{#2e}{?}{1}
+    };
+}
+\newcommand{\comment}[4]{
+    \node[#1, switch ocg={#2 #2e}](#2){
+        \beginOcg{#2}{#3}{0}
+    }
+    node[#1]{
+        \beginOcg{#2e}{#4}{1}
+    };
+}
