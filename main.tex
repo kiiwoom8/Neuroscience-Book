@@ -5,7 +5,27 @@
         \input{components/pages/1_index.tex}
     \end{tikzpicture}
 \end{inctext}
-\def\girl{mama}
-% \def\boy{mame}
-% I am a \ifx\girl\boy large \else small \fi.
+\newpage
+% \switchocg{blah blaha}{
+%     \clap{
+%     \begin{ocg}{blah}{blah}{1}
+%         dkdkdkdkdk
+%     \end{ocg}
+%     \begin{ocg}{blaha}{blaha}{0}
+%         ohohoh
+%     \end{ocg}
+%     }
+% }
+\switchocg{blah blaha}{
+    \stackengine{-7pt}{%
+        \begin{ocg}{blah}{blah}{1}
+            dkdkdkdkdk
+        \end{ocg}
+    }{%
+        \begin{ocg}{blaha}{blaha}{0}
+            ohohoh
+        \end{ocg}
+    }{0}{c}{F}{F}{S}
+}
+
 \end{document}
