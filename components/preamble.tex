@@ -1,5 +1,6 @@
 \documentclass{article}
-\usepackage{tikz, incgraph, ocgx, romannum, stackengine}
+\usepackage{tikz, incgraph, ocgx, romannum, stackengine, hyperref, calc, xcolor}
+\usepackage[margin=1in]{geometry}
 \igrset{border=4cm}
 \usetikzlibrary{arrows.meta, positioning, ocgx}
 \tikzset{
@@ -37,16 +38,17 @@
         \beginOcg{#2e}{#4}{1}
     };
 }
-\newcommand{\textocg}[3]{
-    \switchocg{#1 #1e}{
-        \stackengine{-7pt}{
-            \begin{ocg}{#1}{#1}{1}
-                #2
-            \end{ocg}
-        }{
-            \begin{ocg}{#1e}{#1e}{0}
-                #3
-            \end{ocg}
-        }{0}{c}{F}{F}{S}
-    }
+\newcommand{\textocg}[3]{%
+    \setbox0=\hbox{#2}%
+    \switchocg{#1 #1e}{%
+        \begin{ocg}{#1}{#1}{1}%
+            \textcolor{red}{#2}%
+        \end{ocg}%
+        \begin{ocg}{#1e}{#1e}{0}%
+            \llap{\textcolor{red}{#3}}\vphantom{#2}%
+        \end{ocg}%
+    }%
+}
+\newcommand{\textsize}[1]{
+    \fontsize{#1}{\dimexpr #1pt + 2pt \relax}\selectfont
 }
