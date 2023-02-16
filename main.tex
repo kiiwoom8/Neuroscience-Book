@@ -1,10 +1,9 @@
 \input{components/preamble.tex}
 \begin{document}
-\begin{inctext}
-    \begin{tikzpicture}
-        \input{components/pages/1_index.tex}
-    \end{tikzpicture}
-\end{inctext}
-blah \textocg{example}{This is the visible text}{This is the hidden texttttttttttttttttttttttttt} blah\\
-Text with \phantom{hidden text} empty space.
+{\textsize{32}\textocg{first}{\textcolor{black}{Part 1. }?}{\textcolor{black}{Part 1. }Foundations}\\}
+\begin{outline}[enumerate]
+    \1 \textocg{second}{?}{Past, Present, Future}
+    \2 Second
+    \1 Second
+\end{outline}
 \end{document}
