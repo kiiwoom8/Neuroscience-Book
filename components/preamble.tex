@@ -39,16 +39,32 @@
     };
 }
 \newcommand{\textocg}[3]{%
-    \setbox0=\hbox{#2}%
+    \newlength{\lenn}%
+    \settowidth{\lenn}{#3}%
+    \newlength{\lens}%
+    \settowidth{\lens}{#2}%
+    \newlength{\result}%
+    \setlength{\result}{\dimexpr\lenn-\lens}%
     \switchocg{#1 #1e}{%
         \begin{ocg}{#1}{#1}{1}%
             \textcolor{red}{#2}%
         \end{ocg}%
         \begin{ocg}{#1e}{#1e}{0}%
-            \llap{\textcolor{red}{#3}}\vphantom{#2}%
+            \hspace*{\result}\llap{\textcolor{red}{{#3}}}%
         \end{ocg}%
     }%
 }
+% \newcommand{\textocg}[3]{%
+%     % \setbox0=\hbox{#2}%
+%     \switchocg{#1 #1e}{%
+%         \begin{ocg}{#1}{#1}{1}%
+%             \textcolor{red}{#2}%
+%         \end{ocg}%
+%         \begin{ocg}{#1e}{#1e}{0}%
+%             \llap{\textcolor{red}{#3}}\vphantom{#2}%
+%         \end{ocg}%
+%     }%
+% }
 \newcommand{\textsize}[1]{
     \fontsize{#1}{\dimexpr #1pt + 2pt \relax}\selectfont
 }
