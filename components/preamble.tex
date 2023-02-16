@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage{tikz, incgraph, ocgx, stackengine, hyperref, calc, enumitem, outlines}
+\usepackage{tikz, incgraph, ocgx, stackengine, hyperref, calc, enumitem, outlines, fmtcount}
 \usepackage[margin=1in]{geometry}
 \igrset{border=4cm}
 \usetikzlibrary{arrows.meta, positioning, ocgx}
@@ -39,23 +39,30 @@
     };
 }
 % \newcommand{\textocg}[3]{%
-%     \newlength{\lenn}%
-%     \settowidth{\lenn}{#3}%
-%     \newlength{\lens}%
-%     \settowidth{\lens}{#2}%
-%     \newlength{\result}%
-%     \setlength{\result}{\dimexpr\lenn-\lens}%
+%     \expandafter\newlength\csname#1\endcsname%
+%     \settowidth{\csname#1\endcsname}{#3}%
+%     \expandafter\newlength\csname#1e\endcsname%
+%     \settowidth{\csname#1e\endcsname}{#2}%
+%     \expandafter\newlength\csname#1ee\endcsname%
+%     \setlength{\csname#1ee\endcsname}{\dimexpr\csname#1\endcsname-\csname#1e\endcsname}%
 %     \switchocg{#1 #1e}{%
 %         \begin{ocg}{#1}{#1}{1}%
 %             \textcolor{red}{#2}%
 %         \end{ocg}%
 %         \begin{ocg}{#1e}{#1e}{0}%
-%             \hspace*{\result}\llap{\textcolor{red}{{#3}}}%
+%             \hspace*{\csname#1ee\endcsname}\llap{\textcolor{red}{{#3}}}%
 %         \end{ocg}%
 %     }%
 % }
 
+
+
+\newcounter{ocgcount}
 \newcommand{\textocg}[3]{%
+    \edef\num{\numberstringnum{\theocgcount}}%
+    \num%
+    % \def#1{\num}%
+    \stepcounter{ocgcount}%
     \expandafter\newlength\csname#1\endcsname%
     \settowidth{\csname#1\endcsname}{#3}%
     \expandafter\newlength\csname#1e\endcsname%
@@ -71,6 +78,13 @@
         \end{ocg}%
     }%
 }
+
+
+
+
+
+
+
 \newcommand{\textsize}[1]{
     \fontsize{#1}{\dimexpr #1pt + 2pt \relax}\selectfont
 }
