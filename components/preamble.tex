@@ -1,6 +1,7 @@
 \documentclass{article}
-\usepackage{tikz, incgraph, ocgx, stackengine, hyperref, calc, enumitem, outlines, fmtcount}
-\usepackage[margin=1in]{geometry}
+\usepackage{tikz, incgraph, ocgx, stackengine, hyperref, calc, enumitem, outlines, fmtcount, multicol}
+\usepackage[margin=1in, a4paper]{geometry}
+% \incgraph[pageparams={width=\paperwidth,height=\paperheight}]{example-image}
 \igrset{border=4cm}
 \usetikzlibrary{arrows.meta, positioning, ocgx}
 \tikzset{
@@ -31,46 +32,34 @@
     };
 }
 \newcommand{\comment}[4]{%
-    \node[#1, switch ocg={#2 #2e}](#2){%
-        \beginOcg{#2}{#3}{0}%
+    \textcolor{red}{
+        \node[#1, switch ocg={#2 #2e}](#2){%
+            \beginOcg{#2}{#3}{0}%
+        }
+        node[#1]{%
+            \beginOcg{#2e}{#4}{1}%
+        };
     }
-    node[#1]{%
-        \beginOcg{#2e}{#4}{1}%
-    };
 }
-\newcounter{ocgcount}
+\newcommand{\textsize}[1]{
+    \fontsize{#1}{\dimexpr #1pt + 2pt \relax}\selectfont
+}
+\newcommand{\black}[1]{
+    \textcolor{black}{#1}%
+}
 \newcommand{\textocg}[3]{%
-    \stepcounter{ocgcount}%
-    % \numberstringnum{\theocgcount}%
     \expandafter\newlength\csname#1\endcsname%
-    \settowidth{\csname#1\endcsname}{#3}%
+    \settowidth{\csname#1\endcsname}{#2}%
     \expandafter\newlength\csname#1e\endcsname%
-    \settowidth{\csname#1e\endcsname}{#2}%
+    \settowidth{\csname#1e\endcsname}{#3}%
     \expandafter\newlength\csname#1ee\endcsname%
     \setlength{\csname#1ee\endcsname}{\dimexpr\csname#1\endcsname-\csname#1e\endcsname}%
     \switchocg{#1 #1e}{%
         \begin{ocg}{#1}{#1}{1}%
-            \textcolor{red}{#2}%
+            \textcolor{red}{#3}%
         \end{ocg}%
         \begin{ocg}{#1e}{#1e}{0}%
-            \hspace*{\csname#1ee\endcsname}\llap{\textcolor{red}{{#3}}}%
+            \hspace*{\csname#1ee\endcsname}\llap{\textcolor{red}{#2}}%
         \end{ocg}%
     }%
 }
-
-
-
-
-
-
-\newcommand{\textsize}[1]{
-    \fontsize{#1}{\dimexpr #1pt + 2pt \relax}\selectfont
-}
-
-
-
-% The \expandafter command in the code is used to expand the macros before they are used in the \settowidth and \dimexpr commands. This is necessary because these commands expect a length value as their argument, but the argument may be a macro that needs to be expanded before it can be used as a length.
-
-% For example, in the code, \lenn and \lens are defined using \settowidth{\lenn}{#3} and \settowidth{\lens}{#2} respectively. Here, #2 and #3 are macros representing the second and third arguments of the \textocg command. However, these macros may themselves contain other macros that need to be expanded before they can be used as the argument to \settowidth.
-
-% The \expandafter command is used to expand these macros before they are used as the argument to \settowidth. For example, in the line \settowidth{\lenn}{#3}, the \expandafter command is used to expand #3 before it is passed as the argument to \settowidth, so that \lenn is correctly set to the width of the text represented by #3.

@@ -1,8 +1,12 @@
 \input{components/preamble.tex}
 \begin{document}
-{\textsize{32}\textocg{first}{\textcolor{black}{Part 1. }?}{\textcolor{black}{Part 1. }Foundations}\\}
-\begin{outline}[enumerate]
-    \1 \textocg{second}{?}{Past, Present, Future}
-    \1 Second
-\end{outline}
+\begin{inctext}
+    \begin{tikzpicture}
+        \node(first){\textsize{24.88}Part 1. \textocg{first}{Foundations}{?}};
+        \node[below=of first.west, anchor=west, xshift=.5cm, yshift=-.5cm] (second)
+        {\textsize{14.4}1. \textocg{second}{Past, Present and Future}{?}};
+        \node[below=.8 of second.west, anchor=west](third)
+        {\textsize{14.4}2. \textocg{third}{Neurons and Glia}{?}};
+    \end{tikzpicture}
+\end{inctext}
 \end{document}
