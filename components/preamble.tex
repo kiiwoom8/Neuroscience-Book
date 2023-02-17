@@ -1,7 +1,6 @@
 \documentclass{article}
 \usepackage{tikz, incgraph, ocgx, stackengine, hyperref, calc, enumitem, outlines, fmtcount, multicol}
 \usepackage[margin=1in, a4paper]{geometry}
-% \incgraph[pageparams={width=\paperwidth,height=\paperheight}]{example-image}
 \igrset{border=2cm}
 \usetikzlibrary{arrows.meta, positioning, ocgx}
 \tikzset{
@@ -18,6 +17,7 @@
             shorten <=5pt
         }
 }
+\def\titlesize{20.74}
 \newcommand{\beginOcg}[3]{
     \begin{ocg}{#1}{#1}{#3}%
         #2%
