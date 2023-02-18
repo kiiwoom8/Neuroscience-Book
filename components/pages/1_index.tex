@@ -8,7 +8,7 @@
 \begin{inctext}[label={overlay}, overlay={\node at($(page.north)+(0,-2)$){\textsize{\titlesize}Index};}]
     \begin{tikzpicture}
         \node(start1){};
-        \node(first)[below=\startheight of start1]{\textsize{\subtitle}Part 1. \textocg{first}{Foundations}{?}};
+        \node(first)[below=\startheight of start1]{\textsize{\subtitle}\hyperlink{page.2}{Part 1.} \textocg{first}{Foundations}{?}};
         \node[below=of first.west, anchor=west, xshift=\subtitleindent] (second){
             1. \textocg{second}{Past, Present and Future}{?}
         };

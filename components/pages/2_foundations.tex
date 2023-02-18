@@ -1,4 +1,4 @@
-\begin{inctext}[label={overlay}, overlay={\node at($(page.north)+(0,-2)$){\textsize{\titlesize}Foundations};}]
+\begin{inctext}[label={overlay}, overlay={\node at($(page.north)+(0,-2)$){\textsize{\titlesize}\hyperlink{page.1}{Foundations}};}]
     \begin{tikzpicture}
         \node(start2){};
         \node(thirtyfirst)[below=\subtitleheight of start2]{\textsize{\subtitle}Chapter 1. \textocg{thirtyfirst}{Past, Present and Future}{?}};
@@ -96,6 +96,9 @@
 
         \node[below=0 of thirtyfirst.west |- sixtieth, anchor=west](sixtyfirst){
             \textsize{\subtitle}Chapter 3. \textocg{sixtyfirst}{The Neuronal Membrane at Rest}{?}
+        };
+        \node[below=of sixtyfirst.west, anchor=west, xshift=\subtitleindent] (sixtysecond){
+            \textsize{\subsubtitle}3-1. \textocg{sixtysecond}{The Cast of Chemicals}{?}
         };
     \end{tikzpicture}
 
