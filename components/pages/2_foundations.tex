@@ -1,6 +1,7 @@
-\begin{inctext}
+\begin{inctext}[label={overlay}, overlay={\node at($(page.north)+(0,-2)$){\textsize{\titlesize}Foundations};}]
     \begin{tikzpicture}
-        \node(thirtyfirst){\textsize{\subtitle}Chaptor 1. \textocg{thirtyfirst}{Past, Present and Future}{?}};
+        \node(start2){};
+        \node(thirtyfirst)[below=\subtitleheight of start2]{\textsize{\subtitle}Chapter 1. \textocg{thirtyfirst}{Past, Present and Future}{?}};
         \node[below=of thirtyfirst.west, anchor=west, xshift=\subtitleindent] (thirtysecond){
             \textsize{\subsubtitle}1. \textocg{thirtysecond}{The Origins of Neuroscience}{?}
         };
@@ -36,6 +37,67 @@
             2-5. \textocg{fortysecond}{Nervous System Disorders}{?}
         };
 
-        \node(fortythird)[right=4cm of thirtyfirst]{\textsize{\subtitle}Chaptor 2. \textocg{fortythird}{Neurons and Glia}{?}};
+        \node(fortythird)[right=4cm of thirtyfirst]{\textsize{\subtitle}Chapter 2. \textocg{fortythird}{Neurons and Glia}{?}};
+        \node[below=of fortythird.west, anchor=west, xshift=\subtitleindent] (fortyforth){
+            \textsize{\subsubtitle}1. \textocg{fortyforth}{The Neuron Doctrine}{?}
+        };
+        \node[below=\listheight of fortyforth.west, anchor=west, xshift=\subtitleindent](fortyfifth){
+            1-1. \textocg{fortyfifth}{The Golji Stain}{?}
+        };
+        \node[below=\listheight of fortyfifth.west, anchor=west](fortysixth){
+            1-2. \textocg{fortysixth}{Cajal's Contribution}{?}
+        };
+
+        \node[below=of fortysixth.west, anchor=west, xshift=-\subtitleindent](fortyseventh){
+            \textsize{\subsubtitle}2. \textocg{fortyseventh}{The Prototypical Neuron}{?}
+        };
+        \node[below=\listheight of fortyseventh.west, anchor=west, xshift=\subtitleindent] (fortyeighth){
+            2-1. \textocg{fortyeighth}{The Soma}{?}
+        };
+        \node[below=\listheight of fortyeighth.west, anchor=west] (fortynineth){
+            2-2. \textocg{fortynineth}{The Neuronal Membrane}{?}
+        };
+        \node[below=\listheight of fortynineth.west, anchor=west] (fiftieth){
+            2-3. \textocg{fiftieth}{The Cytoskeleton}{?}
+        };
+        \node[below=\listheight of fiftieth.west, anchor=west] (fiftyfirst){
+            2-4. \textocg{fiftyfirst}{The Axon}{?}
+        };
+        \node[below=\listheight of fiftyfirst.west, anchor=west] (fiftysecond){
+            2-5. \textocg{fiftysecond}{Dendrites}{?}
+        };
+
+        \node[below=of fiftysecond.west, anchor=west, xshift=-\subtitleindent](fiftythird){
+            \textsize{\subsubtitle}3. \textocg{fiftythird}{Classifying Neurons}{?}
+        };
+        \node[below=\listheight of fiftythird.west, anchor=west, xshift=\subtitleindent] (fiftyforth){
+            3-1. \textocg{fiftyforth}{Classification based on Neuronal Structure}{?}
+        };
+        \node[below=\listheight of fiftyforth.west, anchor=west] (fiftyfifth){
+            3-2. \textocg{fiftyfifth}{Classification based on Gene Expression}{?}
+        };
+
+        \node[below=of fiftyfifth.west, anchor=west, xshift=-\subtitleindent](fiftysixth){
+            \textsize{\subsubtitle}4. \textocg{fiftysixth}{Glia}{?}
+        };
+        \node[below=\listheight of fiftysixth.west, anchor=west, xshift=\subtitleindent] (fiftyseventh){
+            4-1. \textocg{fiftyseventh}{Astrocytes}{?}
+        };
+        \node[below=\listheight of fiftyseventh.west, anchor=west] (fiftyeighth){
+            4-2. \textocg{fiftyeighth}{Myelinated Glia}{?}
+        };
+        \node[below=\listheight of fiftyeighth.west, anchor=west] (fiftynineth){
+            4-3. \textocg{fiftynineth}{Other Non-Neuronal Cells}{?}
+        };
+
+        \node[below=\subtitleheight of fiftynineth.west, anchor=west, xshift=-\subtitleindent*2](sixtieth){
+            \textsize{\subtitle}Chapter 4. \textocg{sixteith}{The Action Potential}{?}
+        };
+
+        % \node[left=2cm of sixtieth.west](sixtyfirst){
+        %     \textsize{\subtitle}Chapter 3. \textocg{sixtyfirst}{The Neuronal Membrane at Rest}{?}
+        % };
+
+
     \end{tikzpicture}
 \end{inctext}
